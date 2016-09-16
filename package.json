@@ -1,0 +1,20 @@
+{
+  "name": "todobackend-specs",
+  "version": "0.1.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "Pablo Estrada",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.4.3",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "mocha": "^3.0.2",
+    "mocha-jenkins-reporter": "^0.2.4",
+    "superagent": "^2.2.0",
+    "superagent-promise": "^1.1.0"
+  }
+}
