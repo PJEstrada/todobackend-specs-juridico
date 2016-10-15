@@ -37,7 +37,7 @@ describe('Cross Origin Rquests', function(){
 
 });
 
-describe('Create Todo Item', function(){
+/*describe('Create Todo Item', function(){
 	var result;
 
 	before(function(){
@@ -63,7 +63,7 @@ describe('Create Todo Item', function(){
 		return del(url);
 	});
 	
-});
+});*/
 
 /*
 Convenience functions
