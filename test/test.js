@@ -6,7 +6,9 @@ var chai = require('chai'),
 	chaiAsPromised = require('chai-as-promised');
 
 chai.use(chaiAsPromised)
+var base_url = 'http://localhost:8000/'
 var url = process.env.URL || 'http://localhost:8000/todos';
+var url_crear_expediente = base_url+'crear-expediente/';
 
 
 describe('Cross Origin Rquests', function(){
@@ -37,7 +39,7 @@ describe('Cross Origin Rquests', function(){
 
 });
 
-/*describe('Create Todo Item', function(){
+describe('Create Todo Item', function(){
 	var result;
 
 	before(function(){
@@ -59,11 +61,42 @@ describe('Cross Origin Rquests', function(){
 		return assert(item, "body.title").that.equals('Walk the dog');
 	});
 
+	// una para crear expediente
+	// verificar regrese 201
+	// verificar que tenga el location hyperlink
+
+	// una para crear opinion
+
+	// una para crear dictamen
+
 	after(function(){
 		return del(url);
 	});
-	
-});*/
+
+});
+
+describe ('Crear expediente', function(){
+	var result_expediente;
+
+	before(function(){
+		var file = require('fs');
+		file.writeFile("/tmp/mytext.txt", "Hey there!", function(err) {
+		    if(err) {
+		        return console.log(err);
+		    }
+		    console.log("The file was saved!");
+		});
+		result_expediente = post(url_crear_expediente,{'numero':1,'key':'llavePruebaExpedienteTest4','estado': 1,
+                                			  'solicitante': 1,
+                                				'documentos':{'nombre':'test','archivo':file}});
+	});
+
+
+	it('should return a 201 CREATED response', function(){
+		return assert(result_expediente, "status").to.equal(201);
+	});
+
+});
 
 /*
 Convenience functions
