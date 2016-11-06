@@ -128,6 +128,31 @@ describe ('Crear opinion', function(){
 
 });
 
+describe ('Crear dictamen', function(){
+	var result_dictamen;
+
+	before(function(){
+		result_dictamen = post(url_crear_dictamen,{'expediente': parseInt(expediente_usar),
+																						 'asesor': 1,
+																					   'descripcion': 'Test de descripcion '+String(randomN),
+																					 	 'campo_procuraduria': 'Procuradoria test '+String(randomN)});
+
+	});
+
+
+	it('should return a 201 CREATED response', function(){
+		return assert(result_dictamen, "status").to.equal(201);
+	});
+
+	it('should create the opinion', function(){
+		var item = result_dictamen.then(function(res){
+			return get(base_url+"dictamen/"+String(expediente_usar));
+		});
+		return assert(item, "body.descripcion").that.equals('Test de descripcion '+String(randomN));
+	});
+
+});
+
 
 /*
 Convenience functions
