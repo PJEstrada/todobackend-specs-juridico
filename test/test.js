@@ -9,6 +9,12 @@ chai.use(chaiAsPromised)
 var base_url = 'http://localhost:8000/'
 var url = process.env.URL || 'http://localhost:8000/todos';
 var url_crear_expediente = base_url+'crear-expediente/';
+var url_crear_opinion = base_url+'crear-opinion/';
+var url_crear_dictamen = base_url+'crear-dictamen/';
+var url_crear_providencia = base_url+'emitir-providencia/';
+
+var randomN = Math.floor(Math.random() * 10000) + 1;
+var expediente_usar;
 
 
 describe('Cross Origin Rquests', function(){
@@ -61,14 +67,6 @@ describe('Create Todo Item', function(){
 		return assert(item, "body.title").that.equals('Walk the dog');
 	});
 
-	// una para crear expediente
-	// verificar regrese 201
-	// verificar que tenga el location hyperlink
-
-	// una para crear opinion
-
-	// una para crear dictamen
-
 	after(function(){
 		return del(url);
 	});
@@ -84,9 +82,9 @@ describe ('Crear expediente', function(){
 		    if(err) {
 		        return console.log(err);
 		    }
-		    console.log("The file was saved!");
+		    //console.log("The file was saved!");
 		});
-		result_expediente = post(url_crear_expediente,{'numero':1,'key':'llavePruebaExpedienteTest4','estado': 1,
+		result_expediente = post(url_crear_expediente,{'numero':1,'key':'llavePruebaExpedienteTest'+String(randomN),'estado': 1,
                                 			  'solicitante': 1,
                                 				'documentos':{'nombre':'test','archivo':file}});
 	});
@@ -96,7 +94,40 @@ describe ('Crear expediente', function(){
 		return assert(result_expediente, "status").to.equal(201);
 	});
 
+	it('should create the expediente', function(){
+		var item = result_expediente.then(function(res){
+			expediente_usar = String(res.body['numero_instancia']);
+			return get(base_url+"expediente/"+String(res.body['numero_instancia']));
+		});
+		return assert(item, "body.key").that.equals('llavePruebaExpedienteTest'+String(randomN));
+	});
+
 });
+
+describe ('Crear opinion', function(){
+	var result_opinion;
+
+	before(function(){
+		result_opinion = post(url_crear_opinion,{'expediente': parseInt(expediente_usar),
+																						 'asesor': 1,
+																					   'descripcion': 'Test de descripcion '+String(randomN)});
+
+	});
+
+
+	it('should return a 201 CREATED response', function(){
+		return assert(result_opinion, "status").to.equal(201);
+	});
+
+	it('should create the opinion', function(){
+		var item = result_opinion.then(function(res){
+			return get(base_url+"opinion/"+String(expediente_usar));
+		});
+		return assert(item, "body.descripcion").that.equals('Test de descripcion '+String(randomN));
+	});
+
+});
+
 
 /*
 Convenience functions
