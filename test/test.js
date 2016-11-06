@@ -102,6 +102,11 @@ describe ('Crear expediente', function(){
 		return assert(item, "body.key").that.equals('llavePruebaExpedienteTest'+String(randomN));
 	});
 
+	it('should update the expediente', function(){
+		result_expediente_actualizado = update(base_url+"actualizar-expediente/"+expediente_usar+"/",'PUT',{'estado':2});
+		return assert(result_expediente_actualizado, "status").to.equal(200);
+	});
+
 });
 
 describe ('Crear opinion', function(){
@@ -151,6 +156,22 @@ describe ('Crear dictamen', function(){
 		return assert(item, "body.descripcion").that.equals('Test de descripcion '+String(randomN));
 	});
 
+});
+
+describe ('Emitr Providencia', function(){
+	var result_providencia;
+
+	before(function(){
+		result_providencia = post(url_crear_providencia,{'gerencia_destino': 1,
+																										 'expediente': parseInt(expediente_usar),
+																						 				 'asunto': 'Asunto '+String(randomN),
+																					   		 		 'descripcion': 'Test de descripcion '+String(randomN)});
+
+	});
+
+	it('should return a 201 CREATED response', function(){
+		return assert(result_providencia, "status").to.equal(201);
+	});
 });
 
 
