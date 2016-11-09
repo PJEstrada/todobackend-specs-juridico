@@ -6,7 +6,7 @@ var chai = require('chai'),
 	chaiAsPromised = require('chai-as-promised');
 
 chai.use(chaiAsPromised)
-var base_url = 'http://todobacke-elasticl-195uzltps026i-1470655479.us-west-2.elb.amazonaws.com/'//'http://localhost:8000/'
+var base_url = process.env.URL;//'http://todobacke-elasticl-195uzltps026i-1470655479.us-west-2.elb.amazonaws.com/';//'http://localhost:8000/';
 var url = process.env.URL || 'http://localhost:8000/todos';
 var url_crear_expediente = base_url+'crear-expediente/';
 var url_crear_opinion = base_url+'crear-opinion/';
@@ -159,7 +159,7 @@ describe ('Crear dictamen', function(){
 
 });
 
-describe ('Emitr Providencia', function(){
+describe ('Emitir Providencia', function(){
 	var result_providencia;
 
 	before(function(){
