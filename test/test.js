@@ -7,11 +7,11 @@ var chai = require('chai'),
 
 chai.use(chaiAsPromised)
 var base_url = process.env.URL;//'http://todobacke-elasticl-195uzltps026i-1470655479.us-west-2.elb.amazonaws.com/';//'http://localhost:8000/';
-var url = process.env.URL || 'http://localhost:8000/todos';
-var url_crear_expediente = base_url+'crear-expediente/';
-var url_crear_opinion = base_url+'crear-opinion/';
-var url_crear_dictamen = base_url+'crear-dictamen/';
-var url_crear_providencia = base_url+'emitir-providencia/';
+var url = process.env.URL+"/todos" || 'http://localhost:8000/todos';
+var url_crear_expediente = base_url+'/crear-expediente/';
+var url_crear_opinion = base_url+'/crear-opinion/';
+var url_crear_dictamen = base_url+'/crear-dictamen/';
+var url_crear_providencia = base_url+'/emitir-providencia/';
 
 var randomN = Math.floor(Math.random() * 10000) + 1;
 var expediente_usar;
