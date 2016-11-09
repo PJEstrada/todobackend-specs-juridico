@@ -78,18 +78,16 @@ describe ('Crear expediente', function(){
 	var result_expediente_bad;
 
 	before(function(){
-		var file = require('fs');
+		/*var file = require('fs');
 		file.writeFile("/tmp/mytext.txt", "Hey there!", function(err) {
 		    if(err) {
 		        return console.log(err);
 		    }
 		    //console.log("The file was saved!");
-		});
+		});*/
 		result_expediente = post(url_crear_expediente,{'numero':1,'key':'llavePruebaExpedienteTest'+String(randomN),'estado': 1,
-                                			  'solicitante': 1,
-                                				'documentos':{'nombre':'test','archivo':file}});
-    console.log("HOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!");
-		console.log(url_crear_expediente);
+                                			  'solicitante': 1/*,
+                                				'documentos':{'nombre':'test','archivo':file}*/});
 	});
 
 
