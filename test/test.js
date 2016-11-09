@@ -44,7 +44,7 @@ describe('Cross Origin Rquests', function(){
 	});
 
 });
-
+/*
 describe('Create Todo Item', function(){
 	var result;
 
@@ -72,7 +72,7 @@ describe('Create Todo Item', function(){
 	});
 
 });
-
+*/
 describe ('Crear expediente', function(){
 	var result_expediente;
 	var result_expediente_bad;
