@@ -88,6 +88,8 @@ describe ('Crear expediente', function(){
 		result_expediente = post(url_crear_expediente,{'numero':1,'key':'llavePruebaExpedienteTest'+String(randomN),'estado': 1,
                                 			  'solicitante': 1,
                                 				'documentos':{'nombre':'test','archivo':file}});
+    console.log("HOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO!!!");
+		console.log(url_crear_expediente);
 	});
 
 
