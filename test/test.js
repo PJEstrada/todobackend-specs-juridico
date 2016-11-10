@@ -84,20 +84,20 @@ describe ('Crear expediente', function(){
 	var result_usuario2;
 
 	before(function(){
-		/*var file = require('fs');
+		var file = require('fs');
 		file.writeFile("/tmp/mytext.txt", "Hey there!", function(err) {
 		    if(err) {
 		        return console.log(err);
 		    }
 		    //console.log("The file was saved!");
-		});*/
+		});
 		result_estado = post(ulr_crear_estado,{'gerencia':'Gerencia Juridica', 'estado': 'Pendiente'});
 		result_estado2 = post(ulr_crear_estado,{'gerencia':'Gerencia Juridica', 'estado': 'Aceptado'});
 		result_usuario = post(url_crear_usuario,{'nombre':'Pablo Estrada', 'key': 'keyEstrada1'});
 		result_usuario2 = post(url_crear_usuario,{'nombre':'Miguel Novella', 'key': 'keyNovella1'});
 		result_expediente = post(url_crear_expediente,{'numero':1,'key':'llavePruebaExpedienteTest'+String(randomN),'estado': 1,
-                                			  'solicitante': 1/*,
-                                				'documentos':{'nombre':'test','archivo':file}*/});
+                                			  'solicitante': 1,
+                                				'documentos':{'nombre':'test','archivo':file}});
 	});
 
 	it('should return a 201 CREATED response estado 1', function(){
