@@ -12,6 +12,9 @@ var url_crear_expediente = base_url+'crear-expediente/';
 var url_crear_opinion = base_url+'crear-opinion/';
 var url_crear_dictamen = base_url+'crear-dictamen/';
 var url_crear_providencia = base_url+'emitir-providencia/';
+var ulr_crear_estado = base_url+'crear-estado/';
+var url_crear_usuario = base_url+'crear-usuario/';
+var url_crear_gerencia = base_url+'crear-gerencia/';
 
 var randomN = Math.floor(Math.random() * 10000) + 1;
 var expediente_usar;
@@ -77,6 +80,10 @@ describe('Create Todo Item', function(){
 describe ('Crear expediente', function(){
 	var result_expediente;
 	var result_expediente_bad;
+	var result_estado;
+	var result_estado2;
+	var result_usuario;
+	var result_usuario2;
 
 	before(function(){
 		//var file = require('fs');
@@ -86,12 +93,33 @@ describe ('Crear expediente', function(){
 		  //  }
 		    //console.log("The file was saved!");
 		//})
+                           			  
+		});
+		result_estado = post(ulr_crear_estado,{'gerencia':'Gerencia Juridica', 'estado': 'Pendiente'});
+		result_estado2 = post(ulr_crear_estado,{'gerencia':'Gerencia Juridica', 'estado': 'Aceptado'});
+		result_usuario = post(url_crear_usuario,{'nombre':'Pablo Estrada', 'key': 'keyEstrada1'});
+		result_usuario2 = post(url_crear_usuario,{'nombre':'Miguel Novella', 'key': 'keyNovella1'});
 		result_expediente = post(url_crear_expediente,{'numero':1,'key':'llavePruebaExpedienteTest'+String(randomN),
-		'estado': 1,
-                                			  'solicitante': 1
-                                			  //,'documentos':{'nombre':'test','archivo':file}});
+												'estado': 1,
+                                			  'solicitante': 1});
+                                				//'documentos':{'nombre':'test','archivo':file}});
 	});
 
+	it('should return a 201 CREATED response estado 1', function(){
+		return assert(result_estado, "status").to.equal(201);
+	});
+
+	it('should return a 201 CREATED response estado 2', function(){
+		return assert(result_estado2, "status").to.equal(201);
+	});
+
+	it('should return a 201 CREATED response usuario 1', function(){
+		return assert(result_usuario, "status").to.equal(201);
+	});
+
+	it('should return a 201 CREATED response usuario 2', function(){
+		return assert(result_usuario2, "status").to.equal(201);
+	});
 
 	it('should return a 201 CREATED response', function(){
 		return assert(result_expediente, "status").to.equal(201);
@@ -163,13 +191,19 @@ describe ('Crear dictamen', function(){
 /*
 describe ('Emitir Providencia', function(){
 	var result_providencia;
+	var result_gerencia;
 
 	before(function(){
+		result_gerencia = post(url_crear_gerencia,{'nombre':'Gerencia Juridica', 'descripcion': 'Descripcion Juridica dde la gerencia'});
 		result_providencia = post(url_crear_providencia,{'gerencia_destino': 1,
 																										 'expediente': parseInt(expediente_usar),
 																						 				 'asunto': 'Asunto '+String(randomN),
 																					   		 		 'descripcion': 'Test de descripcion '+String(randomN)});
 
+	});
+
+	it('should return a 201 CREATED response gerencia', function(){
+		return assert(result_gerencia, "status").to.equal(201);
 	});
 
 	it('should return a 201 CREATED response', function(){
