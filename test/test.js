@@ -73,21 +73,23 @@ describe('Create Todo Item', function(){
 
 });
 */
+/*
 describe ('Crear expediente', function(){
 	var result_expediente;
 	var result_expediente_bad;
 
 	before(function(){
-		/*var file = require('fs');
-		file.writeFile("/tmp/mytext.txt", "Hey there!", function(err) {
-		    if(err) {
-		        return console.log(err);
-		    }
+		//var file = require('fs');
+		//file.writeFile("/tmp/mytext.txt", "Hey there!", function(err) {
+		    //if(err) {
+		    //    return console.log(err);
+		  //  }
 		    //console.log("The file was saved!");
-		});*/
-		result_expediente = post(url_crear_expediente,{'numero':1,'key':'llavePruebaExpedienteTest'+String(randomN),'estado': 1,
-                                			  'solicitante': 1/*,
-                                				'documentos':{'nombre':'test','archivo':file}*/});
+		//})
+		result_expediente = post(url_crear_expediente,{'numero':1,'key':'llavePruebaExpedienteTest'+String(randomN),
+		'estado': 1,
+                                			  'solicitante': 1
+                                			  //,'documentos':{'nombre':'test','archivo':file}});
 	});
 
 
@@ -108,8 +110,8 @@ describe ('Crear expediente', function(){
 		return assert(result_expediente_actualizado, "status").to.equal(200);
 	});
 
-});
-
+});*/
+/*
 describe ('Crear opinion', function(){
 	var result_opinion;
 
@@ -132,8 +134,8 @@ describe ('Crear opinion', function(){
 		return assert(item, "body.descripcion").that.equals('Test de descripcion '+String(randomN));
 	});
 
-});
-
+});*/
+/*
 describe ('Crear dictamen', function(){
 	var result_dictamen;
 
@@ -157,8 +159,8 @@ describe ('Crear dictamen', function(){
 		return assert(item, "body.descripcion").that.equals('Test de descripcion '+String(randomN));
 	});
 
-});
-
+});*/
+/*
 describe ('Emitir Providencia', function(){
 	var result_providencia;
 
@@ -175,7 +177,7 @@ describe ('Emitir Providencia', function(){
 	});
 });
 
-
+*/
 /*
 Convenience functions
 */
