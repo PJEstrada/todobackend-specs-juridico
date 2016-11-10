@@ -14,6 +14,7 @@ var url_crear_dictamen = base_url+'crear-dictamen/';
 var url_crear_providencia = base_url+'emitir-providencia/';
 var ulr_crear_estado = base_url+'crear-estado/';
 var url_crear_usuario = base_url+'crear-usuario/';
+var url_crear_gerencia = base_url+'crear-gerencia/';
 
 var randomN = Math.floor(Math.random() * 10000) + 1;
 var expediente_usar;
@@ -184,10 +185,12 @@ describe ('Crear dictamen', function(){
 
 });
 
-/*describe ('Emitir Providencia', function(){
+describe ('Emitir Providencia', function(){
 	var result_providencia;
+	var result_gerencia;
 
 	before(function(){
+		result_gerencia = post(url_crear_gerencia,{'nombre':'Gerencia Juridica', 'descripcion': 'Descripcion Juridica dde la gerencia'});
 		result_providencia = post(url_crear_providencia,{'gerencia_destino': 1,
 																										 'expediente': parseInt(expediente_usar),
 																						 				 'asunto': 'Asunto '+String(randomN),
@@ -195,10 +198,14 @@ describe ('Crear dictamen', function(){
 
 	});
 
+	it('should return a 201 CREATED response gerencia', function(){
+		return assert(result_gerencia, "status").to.equal(201);
+	});
+
 	it('should return a 201 CREATED response', function(){
 		return assert(result_providencia, "status").to.equal(201);
 	});
-});*/
+});
 
 
 /*
