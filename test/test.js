@@ -12,6 +12,7 @@ var url_crear_expediente = base_url+'crear-expediente/';
 var url_crear_opinion = base_url+'crear-opinion/';
 var url_crear_dictamen = base_url+'crear-dictamen/';
 var url_crear_providencia = base_url+'emitir-providencia/';
+var ulr_crear_estado = base_url+'crear-estado/'
 
 var randomN = Math.floor(Math.random() * 10000) + 1;
 var expediente_usar;
@@ -85,6 +86,8 @@ describe ('Crear expediente', function(){
 		    }
 		    //console.log("The file was saved!");
 		});*/
+		var result_estado = post(ulr_crear_estado,{'gerencia':'Gerencia Juridica', 'estado': 'Pendiente'})
+		var result_estado2 = post(ulr_crear_estado,{'gerencia':'Gerencia Juridica', 'estado': 'Aceptado'})
 		result_expediente = post(url_crear_expediente,{'numero':1,'key':'llavePruebaExpedienteTest'+String(randomN),'estado': 1,
                                 			  'solicitante': 1/*,
                                 				'documentos':{'nombre':'test','archivo':file}*/});
