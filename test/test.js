@@ -77,6 +77,8 @@ describe('Create Todo Item', function(){
 describe ('Crear expediente', function(){
 	var result_expediente;
 	var result_expediente_bad;
+	var result_estado;
+	var result_estado2;
 
 	before(function(){
 		/*var file = require('fs');
@@ -86,13 +88,20 @@ describe ('Crear expediente', function(){
 		    }
 		    //console.log("The file was saved!");
 		});*/
-		var result_estado = post(ulr_crear_estado,{'gerencia':'Gerencia Juridica', 'estado': 'Pendiente'})
-		var result_estado2 = post(ulr_crear_estado,{'gerencia':'Gerencia Juridica', 'estado': 'Aceptado'})
+		result_estado = post(ulr_crear_estado,{'gerencia':'Gerencia Juridica', 'estado': 'Pendiente'})
+		result_estado2 = post(ulr_crear_estado,{'gerencia':'Gerencia Juridica', 'estado': 'Aceptado'})
 		result_expediente = post(url_crear_expediente,{'numero':1,'key':'llavePruebaExpedienteTest'+String(randomN),'estado': 1,
                                 			  'solicitante': 1/*,
                                 				'documentos':{'nombre':'test','archivo':file}*/});
 	});
 
+	it('should return a 201 CREATED response', function(){
+		return assert(result_estado, "status").to.equal(201);
+	});
+
+	it('should return a 201 CREATED response', function(){
+		return assert(result_estado2, "status").to.equal(201);
+	});
 
 	it('should return a 201 CREATED response', function(){
 		return assert(result_expediente, "status").to.equal(201);
