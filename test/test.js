@@ -89,7 +89,8 @@ describe ('Crear expediente', function(){
 		    if(err) {
 		        return console.log(err);
 		    }
-		    //console.log("The file was saved!");
+				console.log("HOOOOOOOOOOOOOOO!!!!!");
+		    console.log("The file was saved!");
 		});
 		result_estado = post(ulr_crear_estado,{'gerencia':'Gerencia Juridica', 'estado': 'Pendiente'});
 		result_estado2 = post(ulr_crear_estado,{'gerencia':'Gerencia Juridica', 'estado': 'Aceptado'});
