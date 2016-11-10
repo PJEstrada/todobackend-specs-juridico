@@ -185,7 +185,7 @@ describe ('Crear dictamen', function(){
 
 });
 
-describe ('Emitir Providencia', function(){
+/*describe ('Emitir Providencia', function(){
 	var result_providencia;
 
 	before(function(){
@@ -199,7 +199,7 @@ describe ('Emitir Providencia', function(){
 	it('should return a 201 CREATED response', function(){
 		return assert(result_providencia, "status").to.equal(201);
 	});
-});
+}); */
 
 
 /*
