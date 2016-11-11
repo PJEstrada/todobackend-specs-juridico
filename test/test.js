@@ -79,7 +79,7 @@ describe('Create Todo Item', function(){
 
 });*/
 
-/*describe ('Crear basicos', function(){
+describe ('Crear basicos', function(){
   var result_estado;
   var result_usuario;
   var result_gerencia;
@@ -210,7 +210,7 @@ describe ('Emitir Providencia', function(){
 		return assert(result_providencia, "status").to.equal(201);
 	});
 });
-*/
+
 
 
 //Convenience functions
