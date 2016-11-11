@@ -79,7 +79,7 @@ describe('Create Todo Item', function(){
 
 });*/
 
-describe ('Crear basicos', function(){
+/*describe ('Crear basicos', function(){
   var result_estado;
   var result_usuario;
   var result_gerencia;
@@ -94,7 +94,6 @@ describe ('Crear basicos', function(){
     //estado_usar = String(result_estado.body['numero_instancia']);
     var item = result_estado.then(function(res){
 			estado_usar = String(res.body['numero_instancia']);
-
 		});
 		return assert(result_estado, "status").to.equal(201);
 	});
@@ -123,16 +122,8 @@ describe ('Crear expediente', function(){
 	var result_usuario2;
 
 	before(function(){
-		/*var file = require('fs');
-		file.writeFile("/tmp/mytext.txt", "Hey there!", function(err) {
-		    if(err) {
-		        return console.log(err);
-		    }
-		    //console.log("The file was saved!");
-		});*/
 		result_expediente = post(url_crear_expediente,{'numero':1,'key':'llavePruebaExpedienteTest'+String(randomN),'estado': parseInt(estado_usar),
-                                			  'solicitante': parseInt(usuario_usuar)/*,
-                                				'documentos':{'nombre':'test','archivo':file}*/});
+                                			  'solicitante': parseInt(usuario_usuar)});
 	});
 
 	it('should return a 201 CREATED response', function(){
@@ -219,7 +210,7 @@ describe ('Emitir Providencia', function(){
 		return assert(result_providencia, "status").to.equal(201);
 	});
 });
-
+*/
 
 
 //Convenience functions
