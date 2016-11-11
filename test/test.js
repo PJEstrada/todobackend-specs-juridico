@@ -139,7 +139,9 @@ describe ('Crear expediente', function(){
 	});
 
 	it('should update the expediente', function(){
-		result_expediente_actualizado = update(base_url+"actualizar-expediente/"+expediente_usar+"/",'PUT',{'estado':parseInt(estado_usar)});
+    console.log("EL EXPEDIENTE!!!");
+    console.log(estado_usar);
+		result_expediente_actualizado = update(base_url+"actualizar-expediente/"+expediente_usar+"/",'PUT',{'estado': parseInt(estado_usar)});
 		return assert(result_expediente_actualizado, "status").to.equal(200);
 	});
 
